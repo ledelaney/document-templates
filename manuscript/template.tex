@@ -1,0 +1,144 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PANDOC SPECIFIC SHIT, TAKEN FROM ANOTHER TEMPLATE...
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+%Deal with margins and other geometry stuff
+\usepackage[margin=1.05in]{geometry}
+
+% Need to include this for refs with Pandoc
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}
+{$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
+\everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
+{\par}
+$endif$
+
+%Double-spacing or whatever...
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+
+%Some of this is math package stuff, but honestly i don't really get
+%what most of it is doing
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+
+\usepackage{fixltx2e} % provides \textsubscript
+
+%No idea what this is doing, but obviosly something to do with specialized fonts
+  $if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+
+%Numbered section spacing
+$if(numbersections)$
+\setcounter{secnumdepth}{2}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+
+%For LIST (enumerate) spacing
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LUCY'S DOCUMENT PREAMBLE AND PACKAGES
+
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+\usepackage[left, modulo]{lineno}
+\linenumbers
+
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{tcolorbox}
+%\newtcolorbox{blackbox}{
+%  colback=light-gray,
+%  colframe=black,
+%  coltext=black,
+%  boxsep=2pt,
+%  arc=4pt}
+
+%\usepackage[round]{natbib}
+\usepackage[sectionbib, natbibapa]{apacite} 
+\usepackage[hyphens]{url}
+
+%Set paragraph indent and between paragraph spacing
+\usepackage{parskip}
+\setlength\parindent{24pt}
+\setlength{\parskip}{0pt}
+
+%Need all these for graphics and tables
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{array}
+\usepackage{float}
+
+%Deal with titles and make them less stupid and ugly
+\usepackage{titlesec}
+\titleformat{\section}[block]{\bfseries\sc\filcenter}{}{1em}{}
+%\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\setcounter{secnumdepth}{0}
+
+\usepackage[hyphens]{url}
+
+%Bunch of hyperlink shit
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor = black
+}
+
+
+%Header and footer junk
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L,C]{}
+\fancyhead[R]{\small{\textsc{$author$} \hspace{3mm} \textit{$title$}}}
+\fancyfoot[L]{\tiny{\textit{Version date: \today}}}
+    \fancyfoot[R]{\thepage}
+\fancyfoot[C]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% START OF THE DOCUMENT BODY
+\begin{document}
+
+%%%%%% TITLE 
+\begin{center}
+\vspace*{\baselineskip}
+\LARGE{\textsc{$title$:}\\ \textit{$subtitle$}}\\
+\vspace*{\baselineskip}
+\large{$author$}\\
+\normalsize{\textbf{UIC Department of Biological Sciences}}\\
+\vspace*{\baselineskip}
+\end{center}
+
+%%%%%%%%%%%%%% DOCUMENT BODY
+$body$
+
+\end{document}
+
+
+
