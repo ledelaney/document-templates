@@ -1,0 +1,24 @@
+---
+title: "My Manuscript"
+output:
+  pdf_document:
+      template: template.tex
+      keep_tex: true 
+      latex_engine: xelatex
+  html_document:
+    highlight: tango
+    theme: cosmo
+    toc: true
+    toc_float: true
+subtitle: "What is it good for?"
+author: "L E Delaney"
+documentclass: "article"
+fontsize: 11pt
+margin: margin = 1in
+bibliography: 
+csl: apa.csl
+# nocite: '@*'
+---
+
+A test, A TEST!
+

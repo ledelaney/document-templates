@@ -4,7 +4,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 %Deal with margins and other geometry stuff
-\usepackage[margin=1.05in]{geometry}
+\usepackage[$if(margin)$$margin$$endif$]{geometry}
 
 % Need to include this for refs with Pandoc
 $if(csl-refs)$
@@ -14,12 +14,6 @@ $if(csl-refs)$
 {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
 {\par}
-$endif$
-
-%Double-spacing or whatever...
-$if(linestretch)$
-\usepackage{setspace}
-\setstretch{$linestretch$}
 $endif$
 
 %Some of this is math package stuff, but honestly i don't really get
