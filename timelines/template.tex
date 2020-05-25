@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PANDOC SPECIFIC SHIT, TAKEN FROM ANOTHER TEMPLATE...
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+%Deal with margins and other geometry stuff
+\usepackage[$if(margin)$$margin$$endif$]{geometry}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{tikz}
+\usepackage{gantt}
+\usepackage{pdflscape}
+
+%Numbered section spacing
+$if(numbersections)$
+\setcounter{secnumdepth}{2}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+
+%For LIST (enumerate) spacing
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LUCY'S DOCUMENT PREAMBLE AND PACKAGES
+
+\usepackage{xcolor}
+
+\usepackage{tcolorbox}
+%\newtcolorbox{blackbox}{
+%  colback=light-gray,
+%  colframe=black,
+%  coltext=black,
+%  boxsep=2pt,
+%  arc=4pt}
+
+%Set paragraph indent and between paragraph spacing
+\usepackage{parskip}
+\setlength\parindent{24pt}
+\setlength{\parskip}{0pt}
+
+%Need all these for graphics and tables
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{array}
+\usepackage{float}
+
+%Deal with titles and make them less stupid and ugly
+\usepackage{titlesec}
+\titleformat{\section}[block]{\bfseries\sc\filcenter}{}{1em}{}
+%\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\setcounter{secnumdepth}{0}
+
+\usepackage[hyphens]{url}
+
+%Bunch of hyperlink shit
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor = black
+}
+
+
+%Header and footer junk
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L,C]{}
+\fancyhead[R]{\small{\textsc{$author$} \hspace{3mm} \textit{$title$}}}
+\fancyfoot[L]{\tiny{\textit{Version date: \today}}}
+    \fancyfoot[R]{\thepage}
+\fancyfoot[C]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% START OF THE DOCUMENT BODY
+\begin{document}
+\begin{landscape}
+$body$
+\end{landscape}
+\end{document}
+
+
+
