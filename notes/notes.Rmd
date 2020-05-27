@@ -1,5 +1,7 @@
 ---
 title: "Notes on"
+subtitle: ""
+author: "L E Delaney"
 output:
   pdf_document:
       template: template.tex
@@ -10,9 +12,7 @@ output:
     theme: cosmo
     toc: true
     toc_float: true
-subtitle: ""
-author: "L E Delaney"
 documentclass: "article"
 fontsize: 11pt
-margin: margin = 1in
+geometry_options: margin = 1in
 ---

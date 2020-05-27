@@ -1,5 +1,7 @@
 ---
 title: "My Manuscript"
+subtitle: "What is it good for?"
+author: "L E Delaney"
 output:
   pdf_document:
       template: template.tex
@@ -10,12 +12,10 @@ output:
     theme: cosmo
     toc: true
     toc_float: true
-subtitle: "What is it good for?"
-author: "L E Delaney"
 documentclass: "article"
 fontsize: 11pt
-margin: margin = 1in
-linestretch: 2
+geometry_options: margin = 1in
+linestretch: 1.65
 bibliography: 
 csl: apa.csl
 # nocite: '@*'

@@ -1,5 +1,7 @@
 ---
 title: "A test"
+subtitle: 
+author: "L E Delaney"
 output:
   pdf_document:
       includes:
@@ -7,11 +9,9 @@ output:
       template: template.tex
       keep_tex: false 
       latex_engine: xelatex
-subtitle: 
-author: "L E Delaney"
 documentclass: "article"
 fontsize: 11pt
-margin: margin = 1in
+geometry_options: margin = 1in
 ---
 
   \scalebox{0.8}{

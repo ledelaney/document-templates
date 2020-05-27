@@ -4,7 +4,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 %Deal with margins and other geometry stuff
-\usepackage[$if(margin)$$margin$$endif$]{geometry}
+\usepackage[$if(geometry_options)$$geometry_options$$endif$]{geometry}
 
 % Need to include this for refs with Pandoc
 $if(csl-refs)$
