@@ -1,0 +1,9 @@
+---
+output:
+  pdf_document:
+    latex_engine: xelatex
+    template: template.tex
+week1:
+  - {date: "May 25", task_1: "some tasks", task_2: "some more tasks", task_3: "even more tasks"}
+  - {date: "May 26", task_1: "more tasks"}
+---

@@ -1,0 +1,199 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+\usepackage[left=1.5cm,top=2cm,right=1.5cm,bottom=1.5cm,nohead]{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(subparagraph)$
+$else$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% Lucy's Updates
+% ----------------------------------
+
+% Custom section fonts
+\usepackage{sectsty}
+
+%to help formatting tables
+\usepackage{makecell}
+
+% Make parskips rather than indent with lists.
+\usepackage{parskip}
+\usepackage[explicit]{titlesec}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+\usepackage{xcolor}
+\usepackage{xifthen}
+
+\definecolor{white}{RGB}{255,255,255}
+
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{gray}{HTML}{4D4D4D}
+\definecolor{lightgray}{HTML}{999999}
+
+\definecolor{green}{HTML}{C2E15F}
+\definecolor{orange}{HTML}{FDA333}
+\definecolor{purple}{HTML}{D3A4F9}
+\definecolor{red}{HTML}{FB4485}
+%\definecolor{blue}{HTML}{6CE0F1}
+\definecolor{blue}{HTML}{26D1EA}
+
+\colorlet{fillheader}{gray}
+\colorlet{header}{white}
+\colorlet{textcolor}{gray}
+\colorlet{headercolor}{gray}
+
+
+
+\usepackage[]{fontspec}
+
+\newfontfamily\bodyfont[]{Helvetica Neue}
+\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
+\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+\color{gray}
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+
+\newcounter{colorCounter}
+\def\@sectioncolor#1#2#3{%
+  {%
+    \color{%
+      \ifcase\value{colorCounter}%
+        blue\or%
+        red\or%
+        orange\or%
+        green\or%
+        purple\or%
+        blue\or%
+        red\else%
+        headercolor\fi%
+    } #1#2#3%
+  }%
+  \stepcounter{colorCounter}%
+}
+
+
+\renewcommand{\section}[1]{
+  \par\vspace{\parskip}
+  {%
+    \LARGE\headingfont\color{headercolor}%
+     \@sectioncolor #1%
+  }
+  \par\vspace{\parskip}
+}
+
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\newenvironment{aside}{%
+  \let\oldsection\section
+  \renewcommand{\section}[1]{
+    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+  }
+  \begin{textblock}{3.6}(1.5, 4.33)
+  \begin{flushright}
+  \obeycr
+}{%
+  \restorecr
+  \end{flushright}
+  \end{textblock}
+  \let\section\oldsection
+}
+
+\usepackage[colorlinks=false, 
+urlbordercolor=magenta,
+pdfborderstyle={/S/U/W 0.5}]{hyperref}
+
+\usepackage{tikz}
+
+\newcommand{\rolefont}{%
+  \fontsize{14pt}{24pt}\selectfont%
+  \thinfont%
+  \color{white}%
+}
+
+\newcommand{\header}[3]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+    \node [anchor=center] (name) at (box) {%
+      \fontsize{40pt}{72pt}\color{header}%
+      {\thinfont #1}{\bodyfont  #2}
+    };
+    \node [anchor=north] at (name.south) {%
+      \fontsize{14pt}{24pt}\color{header}%
+      \thinfont #3%
+    };
+  \end{tikzpicture}
+  \vspace{2.5cm}
+  \vspace{-2\parskip}
+}
+
+\newcommand{\fn}[1]{
+\hfill {\small\addfontfeature{Color=lightgray} #1}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\fancyfoot[R]{\footnotesize \addfontfeature{Color=lightgray}Created by Lucy in RMarkdown, inspired by the LaTeX \href{http://www.latextemplates.com/template/friggeri-resume-cv}{Friggeri} template.}
+
+%for itemize spacing
+\usepackage{enumitem}
+
+\usepackage{tabto}
+\parindent0em\parskip1em
+
+\begin{document}
+\pagenumbering{gobble}
+\header{weekly}{tasks}{May 25 - June 19} 
+
+
+\section{Week One}
+\vspace{-0.55cm}
+$for(week1)$
+    \textbf{$week1.date$} 
+    \begin{itemize}
+      \item{$week1.task_1$} 
+      \item{$week1.task_2$}
+    $if(week1.task_3)$ 
+     \item{$week1.task_3$}
+     $endif$ 
+  \end{itemize}
+$endfor$
+
+\section{Week Two}
+
+$body$
+
+
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}

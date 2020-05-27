@@ -1,0 +1,45 @@
+---
+title: "My Checklist"
+subtitle: "Because I got shit to do!"
+author: "L E Delaney"
+output:
+  pdf_document:
+      template: template.tex
+      keep_tex: false 
+      latex_engine: xelatex
+documentclass: "article"
+fontsize: 11pt
+geometry_options: margin = 0.75in
+---
+
+\begin{CheckList}{Goal}
+\Goal{open}{I have a trendy haircut}
+\begin{CheckList}{Task}
+\Task{done}{find a hairdresser}
+\Task{started}{make an appointment}
+\Task{open}{go to the hairdresser}
+\end{CheckList}
+\Goal{achieved}{I have a typed checklist}
+\end{CheckList}
+
+
+\newpage
+\begin{landscape}
+\CheckListSet{strict-dates,input-dates=d.m.y,output-dates=same}
+\begin{CheckList}{Goal}
+\Goal[deadline=31.12.999]{achieved}{Y1K problems are resolved.}
+\Goal[who=John,deadline=31.12.1999]{open}{Y2K problems are resolved.}
+\begin{CheckList}[layout=table,output-dates=datetime]{Task}
+\Task[who=John,label=Fix1]{started}{Repair all programs}
+\Task[who=Mankind,deadline=31.12.1999]
+{open}{Just turn off all computers, if \ref{Fix1} fails}
+\end{CheckList}
+\Goal[deadline=31.12.65535]{unclear}{Y65K problems are resolved.}
+\begin{CheckList}[strict-dates=false,output-dates=m/d/y]{Task}
+\Task[deadline=$\approx 2500AD$,label=TM]
+{open}{Build Y65K-proof time machine.}
+\Task[deadline=31.12.65535]
+{open}{Use time machine from \ref{TM} if problem persists.}
+\end{CheckList}
+\end{CheckList}
+\end{landscape}
