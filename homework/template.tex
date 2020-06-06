@@ -29,6 +29,11 @@ $else$
 \setcounter{secnumdepth}{0}
 $endif$
 
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+
 %For LIST (enumerate) spacing
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -39,19 +44,11 @@ $endif$
 \usepackage{pdflscape}
 \usepackage{xcolor}
 
-%\usepackage[left, modulo]{lineno}
-%\linenumbers
-
-$if(linestretch)$
-\usepackage{setspace}
-\setstretch{$linestretch$}
-$endif$
-
 \usepackage{tcolorbox}
 \newtcolorbox{blackbox}{
-  colback=black,
-  colframe=orange,
-  coltext=white,
+  colback=white,
+  colframe=black,
+  coltext=black,
   boxsep=5pt,
   arc=4pt}
 
@@ -100,21 +97,20 @@ $endif$
     \fancyfoot[R]{\thepage}
 \fancyfoot[C]{}
 
-\usepackage{typed-checklist}
-\usepackage{datetime2}
-\DTMsetregional 
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% START OF THE DOCUMENT BODY
 \begin{document}
 
-
+%%%%%% TITLE 
+\begin{center}
+\Large{\textsc{$title$}}\\ \small{\textit{$subtitle$}}\\
+\vspace*{\baselineskip}
+\end{center}
 
 %%%%%%%%%%%%%% DOCUMENT BODY
 $body$
 
 \end{document}
-
 
 

@@ -1,0 +1,58 @@
+---
+title: "Homework 1"
+subtitle: ""
+author: "L E Delaney"
+output:
+  pdf_document:
+      template: template.tex
+      keep_tex: false 
+      latex_engine: xelatex
+  html_document:
+    highlight: tango
+    theme: cosmo
+    toc: true
+    toc_float: true
+documentclass: "article"
+fontsize: 11pt
+geometry_options: margin = 1in
+linestretch: 1
+---
+:::: {.blackbox data-latex=""}
+
+
+```{r, echo=FALSE, fig.align='center', out.width="45%"}
+
+knitr::include_graphics(path = "input/figure_01_03.jpg")
+
+```
+
+::::
+
+
+:::: {.blackbox data-latex=""}
+
+
+```{r, echo=FALSE, fig.align='center', out.width="45%"}
+
+knitr::include_graphics(path = "input/figure_01_03.jpg")
+
+```
+
+::::
+
+
+:::: {.blackbox data-latex=""}
+
+
+```{r, echo=FALSE, fig.align='center', out.width="45%"}
+
+knitr::include_graphics(path = "input/figure_01_03.jpg")
+
+```
+
+::::
+
+
+
+
+
