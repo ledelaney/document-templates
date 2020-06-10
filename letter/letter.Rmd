@@ -1,0 +1,22 @@
+---
+author: "L E Delaney"
+date: "June 10, 2020"
+addfrom1: "914 N Damen Ave"
+addfrom2: "Chicago, IL 60622"
+addto1: "Vice Chancellor Susan Poser"
+addto2: "University of Illinois at Chicago"
+greetto: "To whom it may concern:"
+closeline: "Sincerely,"
+documentclass: "newlfm"
+fontsize: 12pt
+doc_opts: "stdletter,orderfromtodate,sigleft"
+output:
+  pdf_document:
+      template: template.tex
+      keep_tex: false 
+      latex_engine: xelatex
+---
+
+
+
+Here is a test.

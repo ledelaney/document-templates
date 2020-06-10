@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PANDOC SPECIFIC SHIT, TAKEN FROM ANOTHER TEMPLATE...
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(doc_opts)$$doc_opts$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+%Some of this is math package stuff, but honestly i don't really get
+%what most of it is doing
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+%For LIST (enumerate) spacing
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LUCY'S DOCUMENT PREAMBLE AND PACKAGES
+
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+%Set paragraph indent and between paragraph spacing
+\usepackage{parskip}
+\setlength\parindent{0pt}
+\setlength{\parskip}{5pt}
+
+%Need all these for graphics and tables
+\usepackage{etoolbox}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{xfrac}
+\usepackage{array}
+\usepackage{float}
+
+%Bunch of hyperlink shit
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor = black
+}
+
+%% Patch from https://tex.stackexchange.com/a/395529/226 to address newlfm bug
+\makeatletter
+\patchcmd{\@zfancyhead}{\fancy@reset}{\f@nch@reset}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyorh}{\f@nch@orh}{}{}
+\makeatother
+ 
+\newlfmP{dateskipbefore=50pt}
+\newlfmP{sigsize=50pt}
+\newlfmP{sigskipbefore=50pt}
+ 
+\newlfmP{Headlinewd=0pt,Footlinewd=0pt}
+ 
+\namefrom{$author$}
+\addrfrom{%
+    $addfrom1$\\
+    $addfrom2$
+}
+ 
+\addrto{%
+    $addto1$\\
+    $addto2$
+}
+ 
+\dateset{$date$}
+ 
+\greetto{$greetto$}
+ 
+\closeline{$closeline$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% START OF THE DOCUMENT BODY
+\begin{document}
+
+\begin{newlfm}
+$body$
+\end{newlfm}
+\end{document}
+
+
+
+
+
