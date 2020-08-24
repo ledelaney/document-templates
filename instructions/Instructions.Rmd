@@ -1,0 +1,19 @@
+---
+title: ""
+subtitle: ""
+version: "Version 1"
+author: "L E Delaney"
+output:
+  pdf_document:
+      template: input/template.tex
+      keep_tex: false 
+      latex_engine: xelatex
+  html_document:
+    highlight: tango
+    theme: cosmo
+    toc: true
+    toc_float: true
+documentclass: "article"
+fontsize: 11pt
+geometry_opts: margin = 1.1in
+---
