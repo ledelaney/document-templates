@@ -1,0 +1,98 @@
+
+@import url("fonts.css");
+
+body {
+  background-color: rgb(237, 247, 235);
+  color: black
+}
+
+h1 { /* per-page main title */
+    font-family: 'Cooper-Hewitt';
+    margin-top: 4rem;
+    font-size: 2.3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    width: 90%;
+    /* a little nudge to make text visually lower than 4rem rule in left margin */
+    position: relative;
+    top: 6px;
+}
+
+
+h2, h3, h4, h5, h6, h7, h8 {
+    font-family: 'Cooper-Hewitt', sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: inherit;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+
+}
+
+p {
+  max-width: 700px;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: Charter-Racket
+}
+
+
+
+.header {
+  padding: 10px 0;
+  position: relative;
+  background: rgb(150, 181, 143);
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header h1{
+  float: left;
+  margin-top: -5px;
+  margin-bottom: -20px;
+  margin-left: 10px;
+  padding: 0;
+  font-size: 100%
+}
+
+
+.nav {
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: right;
+}
+
+.nav-logo {
+  float: left;
+  margin-top: -11px;
+  transition: transform 150ms ease-out;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  margin: 0;
+  padding: 0px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: rgb(214, 240, 209);
+  font-family: 'Fira';
+  text-decoration: none;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.nav-links a:hover {
+  color: #000000;
+}
+
+
